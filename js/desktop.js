@@ -146,8 +146,8 @@ function createWindowModal(){
     });
 }
 
-function createWindowYoutube(){
-    Metro.charms.close("#charm");
+function createWindowYoutube(url){
+    // Metro.charms.close("#charm");
 
     Desktop.createWindow({
         resizeable: true,
@@ -156,7 +156,7 @@ function createWindowYoutube(){
         height:500,
         // place:'center',
         title: "百度",
-        content: "<div class='embed-container'><iframe src='https://www.baidu.com'></iframe></div>",
+        content: "<div class='embed-container'><iframe src="+url+"></iframe></div>",
         clsContent: "bg-dark"
     });
 }
