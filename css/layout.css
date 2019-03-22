@@ -281,3 +281,9 @@
   color: #ffffff;
   margin: 40px 20px;
 }
+.start-screen {
+  margin-bottom: -17px;
+}
+.hidden-scroll {
+  overflow: hidden;
+}

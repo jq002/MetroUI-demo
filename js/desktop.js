@@ -21,6 +21,9 @@ var Desktop = {
         item.data("wID", wID);
 
         item.appendTo($(this.options.taskBar));
+        item.on('click',function(){
+            wnd.win.toggle();
+        })
     },
 
     removeFromTaskBar: function(wnd){
@@ -53,16 +56,21 @@ var Desktop = {
         o.onWindowDestroy = function(win){
             that.removeFromTaskBar(win);
         };
+        o.onMinClick=function(win){
+            win.toggleClass("minimized");
+            win.hide();
+
+        }
         var w = $("<div>").appendTo($(this.options.windowArea));
         var wnd = w.window(o).data("window");
 
         var win = wnd.win;
-        var shift = Metro.utils.objectLength(this.wins) * 16;
+        var shift = Metro.utils.objectLength(this.wins) * 25;
 
         if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
             win.css({
-                top: shift,
-                left: shift
+                top: shift+100,
+                left: shift+300
             });
         }
         this.wins[win.attr("id")] = wnd;
@@ -146,19 +154,21 @@ function createWindowModal(){
     });
 }
 
-function createWindowYoutube(url){
+function createWindowYoutube(optionsParams){
     // Metro.charms.close("#charm");
-
-    Desktop.createWindow({
+    var defaultOptions={
         resizeable: true,
         draggable: true,
         width: 800,
         height:500,
-        // place:'center',
-        title: "百度",
-        content: "<div class='embed-container'><iframe src="+url+"></iframe></div>",
+        icon: "<span class='mif-youtube'></span>",
+        title: "Youtube video",
+        content: "<div class='embed-container'><iframe src='https://youtu.be/S9MeTn1i72g'></iframe></div>",
         clsContent: "bg-dark"
-    });
+    }
+
+    var options=$.extend({}, defaultOptions, optionsParams);
+    Desktop.createWindow(options);
 }
 
 function openCharm() {
@@ -173,3 +183,12 @@ $(".window-area").on("click", function(){
 $(".charm-tile").on("click", function(){
     $(this).toggleClass("active");
 });
+
+var params=
+{
+    title:'智习客',
+    url:'https://www.test.zhixike.net/school',
+    icon:'<span class="mif-home"></span>',
+    content:"<div class='embed-container'><iframe src='https://www.test.zhixike.net/school'></iframe></div>",
+    id:'1'
+};

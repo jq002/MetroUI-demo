@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-  </head>
-  <body>
-    <h1 class="text-center">Metro 4</h1>
-    <h3 class="text-center">The Components Library</h3>
-    <div data-role="window" class="p-2">
-            This is a simple window
-        </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+</head>
+
+<body>
+  <h1 class="text-center">Metro 4</h1>
+  <br/>
+  <div data-role="tile"></div>
+  <div data-size="small" data-role="tile" data-cover="images/me_civil.jpg"><img src="images/github.png" class="icon"></div>
+  <div data-size="medium" data-role="tile"  class="bg-red selected"><img src="images/github.png" class="icon"><span class="badge-top">10</span><span class="badge-bottom">10</span></div>
+   <div data-role="tile" data-size="medium" data-effect="hover-zoom-right">
+    <div class="slide-front">
+        <img src="images/pumba-bg.jpg" class="h-100 w-100">
+    </div>
+    <div class="slide-back d-flex flex-justify-center flex-align-center p-4 op-mauve">
+        <p class="text-center">
+            Bubos mori in moscua! Tumultumque de brevis historia, aperto heuretes!
+        </p>
+    </div>
+    <span class="branding-bar fg-dark">hover-zoom-right</span>
+</div>
+<div data-role="tile" data-size="wide" data-effect="image-set">
+  <img src="images/1.jpg">
+  <img src="images/2.jpg">
+  <img src="images/3.jpg">
+  <img src="images/4.jpg">
+  <img src="images/5.jpg">
+</div>
+<div class="tiles-grid">
+  <div data-role="tile" data-size="small"></div>
+  <div data-role="tile" data-size="small"></div>
+  <div data-role="tile" data-size="small" class="col-1 row-2"></div>
+  <div data-role="tile" data-size="small" class="col-2 row-2"></div>
+  <div data-role="tile" data-size="medium"></div>
+  <div data-role="tile" data-size="wide"></div>
+  <div data-role="tile" data-size="large"></div>
+  <div data-role="tile" data-size="medium"></div>
+  <div data-role="tile" data-size="medium"></div>
+  <div data-role="tile" data-size="wide"></div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+</body>
+
 </html>
