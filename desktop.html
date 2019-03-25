@@ -1,277 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="metro4:locale" content="cn-ZH" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="metro4:locale" content="cn-ZH">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-    <link href="./css/metro-all.css?ver=@@b-version" rel="stylesheet">
-    <link href="./css/layout.css" rel="stylesheet">
+    <link href="./css/metro-all.min.css" rel="stylesheet" />
+    <link href="./css/layout.css" rel="stylesheet" />
 
     <title>metro-demo</title>
 
     <style>
-        .window-area {
-            background: url("./images/anime-background-images-1.jpg") center center no-repeat;
-            background-size: cover;
-        }
+      .window-area {
+        background: url('./images/anime-background-images-1.jpg') center center
+          no-repeat;
+        background-size: cover;
+      }
 
-        /* #charm {
-            width: 1000px;
+      #charm {
+            width: 396px;
             top: auto;
             bottom: 40px;
-        } */
-        #charm {
-            height: calc(100vh - 40px);
-            width: 396px;
-            background-color: #1F4F5D;
+            background-color: #1f4f5d;
         }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div data-role="charms" data-position="left" id="charm" class="p-4">
-        <div class="h-100 d-flex flex-column">
-            <div class="charm-top">
-                <div class="text-center m-4">
-                    <span>Google Chrome</span>
-                </div>
-
-                <div class="charm-notify">
-                    <img class="icon" src="./images/me.jpg">
-                    <div class="title">About Author</div>
-                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
-                    <div class="secondary">14:17 &bull; www.facebook.com</div>
-                </div>
-                <div class="charm-notify">
-                    <img class="icon" src="./images/me.jpg">
-                    <div class="title">About Author</div>
-                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
-                    <div class="secondary">14:17 &bull; www.facebook.com</div>
-                </div>
-                <div class="charm-notify">
-                    <img class="icon" src="./images/me.jpg">
-                    <div class="title">About Author</div>
-                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
-                    <div class="secondary">14:17 &bull; www.facebook.com</div>
-                </div>
-
-                <div class="text-center m-4">
-                    <span>Information</span>
-                </div>
-
-                <div class="charm-notify">
-                    <span class="icon mif-info"></span>
-                    <div class="title">You have a news</div>
-                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
-                </div>
-
-                <div class="clear mt-4 reduce-1">
-                    <span class="place-left c-pointer">Collapse</span>
-                    <span class="place-right c-pointer">Clear notifies</span>
-                </div>
-
+      <div class="h-100 d-flex flex-column">
+        <div class="charm-bottom mt-auto">
+          <div class="d-flex">
+            <div class="charm-tile">
+              <span class="icon mif-tablet-landscape"></span>
+              <span class="caption">Tablet mode</span>
             </div>
-
-            <div class="charm-bottom mt-auto">
-                <div class="d-flex">
-                    <div class="charm-tile">
-                        <span class="icon mif-tablet-landscape"></span>
-                        <span class="caption">Tablet mode</span>
-                    </div>
-                    <div class="charm-tile">
-                        <span class="icon mif-wifi-full"></span>
-                        <span class="caption">Network</span>
-                    </div>
-                    <div class="charm-tile">
-                        <span class="icon mif-cog"></span>
-                        <span class="caption">Preferences</span>
-                    </div>
-                    <div class="charm-tile active">
-                        <span class="icon mif-rocket"></span>
-                        <span class="caption">Fly mode</span>
-                    </div>
-                </div>
-
-                <div class="d-flex">
-                    <div class="charm-tile active">
-                        <span class="icon mif-target"></span>
-                        <span class="caption">Position</span>
-                    </div>
-                    <div class="charm-tile">
-                        <span class="icon mif-bluetooth"></span>
-                        <span class="caption">Not connected</span>
-                    </div>
-                </div>
+            <div class="charm-tile">
+              <span class="icon mif-wifi-full"></span>
+              <span class="caption">Network</span>
             </div>
+            <div class="charm-tile">
+              <span class="icon mif-cog"></span>
+              <span class="caption">Preferences</span>
+            </div>
+            <div class="charm-tile active">
+              <span class="icon mif-rocket"></span>
+              <span class="caption">Fly mode</span>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="charm-tile active">
+              <span class="icon mif-target"></span>
+              <span class="caption">Position</span>
+            </div>
+            <div class="charm-tile">
+              <span class="icon mif-bluetooth"></span>
+              <span class="caption">Not connected</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="desktop ">
-        <div class="window-area ">
-            <div class="hidden-scroll">
-                <div class="start-screen">
-                    <!-- content here -->
-                    <h1 class="start-screen-title">Start</h1>
-                    <div class="tiles-area clear">
-                        <div class="tiles-grid tiles-group size-2 fg-white" data-group-title="General">
-                            <a onclick='createWindowYoutube("https://www.test.zhixike.net/school")' data-role="tile"
-                                class="bg-indigo fg-white">
-                                <span class="mif-github icon"></span>
-                                <span class="branding-bar">Github</span>
-                                <span class="badge-bottom">30</span>
-                            </a>
-                            <div data-role="tile" class="bg-cyan fg-white"
-                                onclick='createWindowYoutube("https://mail.qq.com")'>
-                                <span class="mif-envelop icon"></span>
-                                <span class="branding-bar">Email</span>
-                                <span class="badge-bottom">10</span>
-                            </div>
-                            <div data-role="tile" class="bg-orange fg-white" data-size="wide"
-                                onclick='createWindowYoutube("https://www.baidu.com")'>
-                                <span class="mif-chrome icon"></span>
-                                <span class="branding-bar">Chrome</span>
-                            </div>
-                            <div data-role="tile" data-size="small">
-                                <span class="mif-apple icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-red fg-white">
-                                <span class="mif-bell icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-teal fg-white col-1 row-6">
-                                <span class="mif-windows icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-brown fg-white col-2 row-6">
-                                <span class="mif-wind icon"></span>
-                            </div>
-                            <div data-role="tile" class="bg-cyan fg-white">
-                                <span class="mif-table icon"></span>
-                                <span class="branding-bar">Tables</span>
-                            </div>
-                        </div>
-
-                        <div class="tiles-grid tiles-group size-2 fg-white" data-group-title="Images">
-                            <div data-role="tile" data-cover="./images/me.jpg">
-                                <span class="branding-bar">Sergey Pimenov</span>
-                            </div>
-                            <div data-role="tile" data-effect="animate-fade" data-effect-duration="1000">
-                                <div class="slide" data-cover="./images/me2.jpg"></div>
-                                <div class="slide" data-cover="./images/me.jpg"></div>
-                                <div class="slide" data-cover="./images/me3.jpg"></div>
-                                <span class="branding-bar">Gallery</span>
-                            </div>
-                            <div data-role="tile" data-size="wide" data-effect="animate-slide-left">
-                                <div class="slide" data-cover="./images/1.jpg"></div>
-                                <div class="slide" data-cover="./images/2.jpg"></div>
-                                <div class="slide" data-cover="./images/3.jpg"></div>
-                                <div class="slide" data-cover="./images/4.jpg"></div>
-                                <div class="slide" data-cover="./images/5.jpg"></div>
-                                <span class="branding-bar">Gallery</span>
-                            </div>
-                            <!-- <div data-role="tile" data-size="wide" data-effect="image-set">
-                                        <img src="./images/jeki_chan.jpg">
-                                        <img src="./images/shvarcenegger.jpg">
-                                        <img src="./images/vin_d.jpg">
-                                        <img src="./images/jolie.jpg">
-                                        <img src="./images/jek_vorobey.jpg">
-                                    </div> -->
-                            <div data-role="tile" data-size="small">
-                                <img src="./images/outlook.png" class="icon">
-                            </div>
-                        </div>
-
-                        <div class="tiles-grid tiles-group size-1 fg-white" data-group-title="Office">
-                            <div data-role="tile" data-size="small">
-                                <img src="./images/outlook.png" class="icon">
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-brown">
-                                <img src="./images/word.png" class="icon">
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-green">
-                                <img src="./images/excel.png" class="icon">
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-red">
-                                <img src="./images/access.png" class="icon">
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-teal">
-                                <img src="./images/powerpoint.png" class="icon">
-                            </div>
-                        </div>
-
-                        <div class="tiles-grid tiles-group size-2 fg-white" data-group-title="Games">
-                            <div data-role="tile" data-cover="./images/Battlefield_4_Icon.png">
-                                <span class="branding-bar">Battlefield 4</span>
-                            </div>
-                            <div data-role="tile" class="bg-green">
-                                <img src="./images/x-box.png" class="icon">
-                                <span class="branding-bar">XBOX ONE</span>
-                            </div>
-                            <div data-role="tile" data-size="wide" data-cover="./images/x-box.png">
-                                <span class="branding-bar">XBOX LIVE</span>
-                                <span class="badge-top">5</span>
-                            </div>
-                        </div>
-
-                        <div class="tiles-grid tiles-group size-2 fg-white" data-group-title="General">
-                            <a href="https://github.com/olton/Metro-UI-CSS" data-role="tile" class="bg-indigo fg-white">
-                                <span class="mif-github icon"></span>
-                                <span class="branding-bar">Github</span>
-                                <span class="badge-bottom">30</span>
-                            </a>
-                            <div data-role="tile" class="bg-cyan fg-white">
-                                <span class="mif-envelop icon"></span>
-                                <span class="branding-bar">Email</span>
-                                <span class="badge-bottom">10</span>
-                            </div>
-                            <div data-role="tile" class="bg-orange fg-white" data-size="wide">
-                                <span class="mif-chrome icon"></span>
-                                <span class="branding-bar">Chrome</span>
-                            </div>
-                            <div data-role="tile" data-size="small">
-                                <span class="mif-apple icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-red fg-white">
-                                <span class="mif-bell icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-teal fg-white col-1 row-6">
-                                <span class="mif-windows icon"></span>
-                            </div>
-                            <div data-role="tile" data-size="small" class="bg-brown fg-white col-2 row-6">
-                                <span class="mif-wind icon"></span>
-                            </div>
-                            <div data-role="tile" class="bg-cyan fg-white">
-                                <span class="mif-table icon"></span>
-                                <span class="branding-bar">Tables</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+      <div class="window-area ">
+        <div class="hidden-scroll">
+          <div class="start-screen">
+            <!-- content here -->
+            <div class="tiles-area clear"></div>
+          </div>
         </div>
-        <div class="task-bar">
-            <div class="task-bar-section">
-                <button class="task-bar-item" id="open-charm" onclick="openCharm()"><span
-                        class="mif-windows"></span></button>
-            </div>
-
-            <div class="task-bar-section tasks"></div>
-            <div class="task-bar-section system-tray ml-auto">
-                <!-- <button class="task-bar-item" id="open-charm" onclick="openCharm()"><span class="mif-comment"></span></button> -->
-                <span style="line-height: 40px;" class="pr-4">
-                    <span data-role="clock" class="w-auto fg-white reduce-1" data-show-date="false"></span>
-                </span>
-            </div>
+      </div>
+      <div class="task-bar">
+        <div class="task-bar-section">
+          <button class="task-bar-item" id="open-charm" onclick="openCharm()">
+            <span class="mif-windows"></span>
+          </button>
         </div>
+
+        <div class="task-bar-section tasks"></div>
+        <div class="task-bar-section system-tray ml-auto">
+          <span style="line-height: 40px;" class="pr-4">
+            <span
+              data-role="clock"
+              class="w-auto fg-white reduce-1"
+              data-show-date="false"
+            ></span>
+          </span>
+        </div>
+      </div>
     </div>
 
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/metro.js"></script>
+    <script src="./js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="./js/vendor/doT.min.js"></script>
+    <!-- tile模板 -->
+    <script type="text/x-dot-template" id="groupTpl">
+      {{~ it:item:groupIndex}}
+      <div class="tiles-grid tiles-group {{=item.groupClass}}" data-group-title="{{=item.groupTitle}}">
+          {{~ item.tiles:tile:index}}
+            <div data-role="tile" class="{{=tile.class}}" data-size="{{=tile.dataSize}}" data-id={{=groupIndex+'-'+index}}>
+                {{?tile.iconUrl}}
+                <img src="{{=tile.iconUrl}}" class="icon">
+                {{??}}
+                <span class="{{=tile.icon}} icon"></span>
+                {{?}}
+                {{?tile.dataSize!=="small"}}
+                <span class="branding-bar">{{=tile.brandingBar}}</span>
+                {{?}}
+            </div>
+          {{~}}
+      </div>
+      {{~}}
+    </script>
+    <script>
+      // 创建标签
+      function init() {
+        window.desktopConfig = {
+          groups: [
+            {
+              groupTitle: '组一',
+              groupClass: 'size-2 fg-white',
+              tiles: [
+                {
+                  class: 'bg-indigo fg-white',
+                  width:'900',
+                  height:'600',
+                  icon: 'mif-github',
+                  brandingBar: 'Github',
+                  url: 'https://www.zhixike.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-apple',
+                  brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-orange fg-white',
+                  icon: 'mif-bell',
+                  brandingBar: '测试Metro-UI',
+                  url: './test.html',
+                  dataSize: 'wide'
+                },
+                {
+                  class: 'fg-white',
+                  icon: 'mif-chrome',
+                    brandingBar: 'word',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small',
+                  iconUrl:'./images/word.png'
+                },
+                {
+                  class: 'bg-teal fg-white',
+                  icon: 'mif-cloud',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                },{
+                  class: 'bg-brown fg-white',
+                  icon: 'mif-cross',
+                  brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-earth',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-green fg-white',
+                  icon: 'mif-fire',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                }
+              ]
+            },
+            {
+              groupTitle: '组二',
+              groupClass: 'size-2 fg-white',
+              tiles: [
+                {
+                  class: 'bg-indigo fg-white',
+                  icon: 'mif-github',
+                  brandingBar: 'Github',
+                  url: 'https://github.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                  brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                  brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'wide'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                },{
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                  brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'medium'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                }
+              ]
+            },
+            {
+              groupTitle: '组三',
+              groupClass: 'size-1 fg-white',
+              tiles: [
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com ',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                },
+                {
+                  class: 'bg-cyan fg-white',
+                  icon: 'mif-github',
+                    brandingBar: '百度',
+                  url: 'https://www.baidu.com',
+                  dataSize: 'small'
+                }
+              ]
+            }
+
+          ],
+          title: '智习客'
+        }
+        var $groupsHtml = doT.template($('#groupTpl').html())(desktopConfig.groups)
+        $('.tiles-area').append($groupsHtml)
+      }
+      init()
+    </script>
+    <script src="./js/vendor/metro.min.js"></script>
     <script src="./js/desktop.js"></script>
     <script src="./js/start.js"></script>
-</body>
 
+  </body>
 </html>

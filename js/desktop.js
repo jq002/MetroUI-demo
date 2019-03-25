@@ -1,194 +1,220 @@
 var Desktop = {
-    options: {
-        windowArea: ".window-area",
-        windowAreaClass: "",
-        taskBar: ".task-bar > .tasks",
-        taskBarClass: ""
-    },
+  options: {
+    windowArea: '.window-area',
+    windowAreaClass: '',
+    taskBar: '.task-bar > .tasks',
+    taskBarClass: ''
+  },
 
-    wins: {},
+  wins: {},
 
-    setup: function(options){
-        this.options = $.extend( {}, this.options, options );
-        return this;
-    },
+  setup: function(options) {
+    this.options = $.extend({}, this.options, options)
+    return this
+  },
 
-    addToTaskBar: function(wnd){
-        var icon = wnd.getIcon();
-        var wID = wnd.win.attr("id");
-        var item = $("<span>").addClass("task-bar-item started").html(icon);
+  addToTaskBar: function(wnd) {
+    var icon = wnd.getIcon()
+    var wID = wnd.win.attr('id')
+    var item = $('<span>')
+      .addClass('task-bar-item started')
+      .html(icon)
 
-        item.data("wID", wID);
+    item.data('wID', wID)
 
-        item.appendTo($(this.options.taskBar));
-        item.on('click',function(){
-            wnd.win.toggle();
-        })
-    },
+    item.appendTo($(this.options.taskBar))
+    item.on('click', function() {
 
-    removeFromTaskBar: function(wnd){
-        console.log(wnd);
-        var wID = wnd.attr("id");
-        var items = $(".task-bar-item");
-        var that = this;
-        $.each(items, function(){
-            var item = $(this);
-            if (item.data("wID") === wID) {
-                delete that.wins[wID];
-                item.remove();
-            }
-        })
-    },
-
-    createWindow: function(o){
-        var that = this;
-        o.onDragStart = function(pos, el){
-            win = $(el);
-            $(".window").css("z-index", 1);
-            if (!win.hasClass("modal"))
-                win.css("z-index", 3);
-        };
-        o.onDragStop = function(pos, el){
-            win = $(el);
-            if (!win.hasClass("modal"))
-                win.css("z-index", 2);
-        };
-        o.onWindowDestroy = function(win){
-            that.removeFromTaskBar(win);
-        };
-        o.onMinClick=function(win){
-            win.toggleClass("minimized");
-            win.hide();
-
+      if (wnd.win.css('display') === 'none') {
+        for (let a in Desktop.wins) {
+          Desktop.wins[a].win.removeClass('window-current')
         }
-        var w = $("<div>").appendTo($(this.options.windowArea));
-        var wnd = w.window(o).data("window");
+        wnd.win.addClass('window-current')
+      }else{
+        wnd.win.removeClass('window-current')
+      }
+      wnd.win.toggle()
+    })
+  },
 
-        var win = wnd.win;
-        var shift = Metro.utils.objectLength(this.wins) * 25;
+  removeFromTaskBar: function(wnd) {
+    var wID = wnd.attr('id')
+    var items = $('.task-bar-item')
+    var that = this
+    $.each(items, function() {
+      var item = $(this)
+      if (item.data('wID') === wID) {
+        delete that.wins[wID]
+        item.remove()
+      }
+    })
+  },
 
-        if (wnd.options.place === "auto" && wnd.options.top === "auto" && wnd.options.left === "auto") {
-            win.css({
-                top: shift+100,
-                left: shift+300
-            });
-        }
-        this.wins[win.attr("id")] = wnd;
-        this.addToTaskBar(wnd);
-        w.remove();
+  createWindow: function(o, tileConfig) {
+    var that = this
+    o.onDragStart = function(pos, el) {
+      win = $(el)
+      $('.window').css('z-index', 1)
+      for (let a in Desktop.wins) {
+        Desktop.wins[a].win.removeClass('window-current')
+      }
     }
-};
-
-Desktop.setup();
-
-var w_icons = [
-    'rocket', 'apps', 'cog', 'anchor'
-];
-var w_titles = [
-    'rocket', 'apps', 'cog', 'anchor'
-];
-
-function createWindow(){
-    var index = Metro.utils.random(0, 3);
-    Desktop.createWindow({
-        resizeable: true,
-        draggable: true,
-        width: 300,
-        icon: "<span class='mif-"+w_icons[index]+"'></span>",
-        title: w_titles[index],
-        content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
-    });
-}
-
-function createWindowWithCustomButtons(){
-    var index = Metro.utils.random(0, 3);
-    var customButtons = [
-        {
-            html: "<span class='mif-rocket'></span>",
-            cls: "sys-button",
-            onclick: "alert('You press rocket button')"
-        },
-        {
-            html: "<span class='mif-user'></span>",
-            cls: "alert",
-            onclick: "alert('You press user button')"
-        },
-        {
-            html: "<span class='mif-cog'></span>",
-            cls: "warning",
-            onclick: "alert('You press cog button')"
-        }
-    ];
-    Desktop.createWindow({
-        resizeable: true,
-        draggable: true,
-        customButtons: customButtons,
-        width: 360,
-        icon: "<span class='mif-"+w_icons[index]+"'></span>",
-        title: w_titles[index],
-        content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library.<br><br>This window has a custom buttons in caption.</div>"
-    });
-}
-
-function createWindowModal(){
-    Desktop.createWindow({
-        resizeable: false,
-        draggable: true,
-        width: 300,
-        icon: "<span class='mif-cogs'></span>",
-        title: "Modal window",
-        content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>",
-        overlay: true,
-        //overlayColor: "transparent",
-        modal: true,
-        place: "center",
-        onShow: function(win){
-            win.addClass("ani-swoopInTop");
-            setTimeout(function(){
-                win.removeClass("ani-swoopInTop");
-            }, 1000);
-        },
-        onClose: function(win){
-            win.addClass("ani-swoopOutTop");
-        }
-    });
-}
-
-function createWindowYoutube(optionsParams){
-    // Metro.charms.close("#charm");
-    var defaultOptions={
-        resizeable: true,
-        draggable: true,
-        width: 800,
-        height:500,
-        icon: "<span class='mif-youtube'></span>",
-        title: "Youtube video",
-        content: "<div class='embed-container'><iframe src='https://youtu.be/S9MeTn1i72g'></iframe></div>",
-        clsContent: "bg-dark"
+    o.onDragStop = function(pos, el) {
+      win = $(this)
+      win.addClass('window-current')
     }
+    o.onWindowDestroy = function(win) {
+      that.removeFromTaskBar(win)
+      tileConfig['windowId'] = null
+    }
+    o.onMinClick = function(win) {
+      win.toggleClass('minimized')
+      win.hide()
+    }
+    var w = $('<div>').appendTo($(this.options.windowArea))
+    var wnd = w.window(o).data('window')
 
-    var options=$.extend({}, defaultOptions, optionsParams);
-    Desktop.createWindow(options);
+    var win = wnd.win
+    var shift = Metro.utils.objectLength(this.wins) * 25
+
+    if (
+      wnd.options.place === 'auto' &&
+      wnd.options.top === 'auto' &&
+      wnd.options.left === 'auto'
+    ) {
+      win.css({
+        top: shift + 100,
+        left: shift + 300
+      })
+    }
+    this.wins[win.attr('id')] = wnd
+    if (tileConfig) {
+      tileConfig.windowId = win.attr('id')
+    }
+    wnd.win.addClass('window-current')
+    this.addToTaskBar(wnd)
+    w.remove()
+  }
+}
+
+Desktop.setup()
+
+var w_icons = ['rocket', 'apps', 'cog', 'anchor']
+var w_titles = ['rocket', 'apps', 'cog', 'anchor']
+
+function createWindow() {
+  var index = Metro.utils.random(0, 3)
+  Desktop.createWindow({
+    resizeable: true,
+    draggable: true,
+    width: 300,
+    icon: "<span class='mif-" + w_icons[index] + "'></span>",
+    title: w_titles[index],
+    content:
+      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
+  })
+}
+
+function createWindowWithCustomButtons() {
+  var index = Metro.utils.random(0, 3)
+  var customButtons = [
+    {
+      html: "<span class='mif-rocket'></span>",
+      cls: 'sys-button',
+      onclick: "alert('You press rocket button')"
+    },
+    {
+      html: "<span class='mif-user'></span>",
+      cls: 'alert',
+      onclick: "alert('You press user button')"
+    },
+    {
+      html: "<span class='mif-cog'></span>",
+      cls: 'warning',
+      onclick: "alert('You press cog button')"
+    }
+  ]
+  Desktop.createWindow({
+    resizeable: true,
+    draggable: true,
+    customButtons: customButtons,
+    width: 360,
+    icon: "<span class='mif-" + w_icons[index] + "'></span>",
+    title: w_titles[index],
+    content:
+      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library.<br><br>This window has a custom buttons in caption.</div>"
+  })
+}
+
+function createWindowModal() {
+  Desktop.createWindow({
+    resizeable: false,
+    draggable: true,
+    width: 300,
+    icon: "<span class='mif-cogs'></span>",
+    title: 'Modal window',
+    content:
+      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>",
+    overlay: true,
+    //overlayColor: "transparent",
+    modal: true,
+    place: 'center',
+    onShow: function(win) {
+      win.addClass('ani-swoopInTop')
+      setTimeout(function() {
+        win.removeClass('ani-swoopInTop')
+      }, 1000)
+    },
+    onClose: function(win) {
+      win.addClass('ani-swoopOutTop')
+    }
+  })
+}
+
+function createWindowIframe(tileConfig) {
+  // Metro.charms.close("#charm");
+  var defaultOptions = {
+    resizeable: true,
+    draggable: true,
+    width: tileConfig.width?tileConfig.width:800,
+    height: tileConfig.height?tileConfig.height:500,
+    icon: '<span class=' + tileConfig.icon + '></span>',
+    title: tileConfig.brandingBar,
+    content:
+      "<div class='embed-container'><iframe src=" +
+      tileConfig.url +
+      '></iframe></div>'
+  }
+  Desktop.createWindow(defaultOptions, tileConfig)
 }
 
 function openCharm() {
-    var charm = $("#charm").data("charms");
-    charm.toggle();
+  var charm = $('#charm').data('charms')
+  charm.toggle()
 }
 
-$(".window-area").on("click", function(){
-    Metro.charms.close("#charm");
-});
+$('.window-area').on('click', function() {
+  Metro.charms.close('#charm')
+})
 
-$(".charm-tile").on("click", function(){
-    $(this).toggleClass("active");
-});
+$('.charm-tile').on('click', function() {
+  $(this).toggleClass('active')
+})
 
-var params=
-{
-    title:'智习客',
-    url:'https://www.test.zhixike.net/school',
-    icon:'<span class="mif-home"></span>',
-    content:"<div class='embed-container'><iframe src='https://www.test.zhixike.net/school'></iframe></div>",
-    id:'1'
-};
+$('[data-role="tile"]').on('click', function() {
+  var ids = $(this)
+    .data('id')
+    .split('-')
+  var tileConfig = window.desktopConfig.groups[ids[0]].tiles[parseInt(ids[1])]
+
+  for (let a in Desktop.wins) {
+    Desktop.wins[a].win.removeClass('window-current')
+  }
+  if (tileConfig.windowId) {
+    var $win = Desktop.wins[tileConfig.windowId].win
+    $win.show()
+    $win.addClass('window-current')
+  } else {
+    createWindowIframe(tileConfig)
+  }
+})

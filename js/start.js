@@ -61,3 +61,4 @@ $(".tiles-group").animate({
 $(window).on(Metro.events.resize + "-start-screen-resize", function(){
     $.StartScreen();
 });
+
