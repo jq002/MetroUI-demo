@@ -13,8 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/anime-background-images-1.jpg') center center no-repeat;
-  background-size: cover;
+  background-color: #333;
 }
 .window-area {
   position: relative;
@@ -294,4 +293,43 @@
 }
 .window-current {
   z-index: 11!important;
+}
+.start-arrow {
+  position: absolute;
+  font-size: 40px;
+  color: #ffffff;
+  right: 40px;
+  top: 50%;
+}
+.start-arrow span:first-child {
+  position: absolute;
+  right: 16px;
+  -webkit-animation: fadeIn 5s 1s infinite;
+          animation: fadeIn 5s 1s infinite;
+}
+.start-arrow span:last-child {
+  -webkit-animation: fadeIn 5s  infinite;
+          animation: fadeIn 5s  infinite;
+}
+@-webkit-keyframes fadeIn {
+  0%,
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0%,
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
 }

@@ -104,6 +104,10 @@
           <!-- content here -->
           <div class="tiles-area clear"></div>
         </div>
+        <div class="start-arrow ">
+            <span class="mif-chevron-thin-right "></span>
+            <span class="mif-chevron-thin-right "></span>
+        </div>
       </div>
     </div>
     <div class="task-bar">
@@ -118,7 +122,7 @@
     {{~ it:item:groupIndex}}
       <div class="tiles-grid tiles-group {{=item.groupClass}}" data-group-title="{{=item.groupTitle}}">
           {{~ item.tiles:tile:index}}
-            <div data-role="tile" class="{{=tile.class}}" data-size="{{=tile.dataSize}}" data-id={{=groupIndex+'-'+index}}>
+            <div data-role="tile" class="{{=tile.class}}" data-size="{{=tile.dataSize}}" data-id={{=groupIndex+'-'+index}} {{?tile.bgColor}}style="background-color: {{=tile.bgColor}}"{{?}}>
                 {{?tile.iconUrl}}
                 <img src="{{=tile.iconUrl}}" class="icon">
                 {{??}}
@@ -137,7 +141,7 @@
     function init() {
       window.desktopConfig = {
         groups: [{
-            groupTitle: '组一',
+            groupTitle: '管理',
             groupClass: 'size-2 fg-white',
             tiles: [{
                 class: 'bg-indigo fg-white',
@@ -200,21 +204,71 @@
             ]
           },
           {
-            groupTitle: '组二',
+            groupTitle: '教学',
             groupClass: 'size-2 fg-white',
             tiles: [{
-                class: 'bg-indigo fg-white',
+                class: 'bg-red  fg-white',
                 icon: 'mif-github',
                 brandingBar: 'Github',
                 url: 'https://github.com',
                 dataSize: 'medium'
               },
               {
-                class: 'bg-cyan fg-white',
+                class: 'fg-white',
                 icon: 'mif-github',
                 brandingBar: '百度',
                 url: 'https://www.baidu.com',
                 dataSize: 'medium'
+              },
+              {
+                class: 'fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com',
+                dataSize: 'wide'
+              }, {
+                class: 'bg-emerald fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com',
+                dataSize: 'medium'
+              }
+            ]
+          },
+          {
+            groupTitle: '统计分析',
+            groupClass: 'size-4 fg-white',
+            tiles: [{
+                class: 'fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com ',
+                dataSize: 'wide',
+                bgColor:'#662D91'
+              },
+              {
+                class: 'fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com',
+                dataSize: 'medium',
+                bgColor:'#CD4900'
+              },
+              {
+                class: 'fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com ',
+                dataSize: 'medium',
+                bgColor:'#bc1c48'
+              },
+              {
+                class: 'fg-white',
+                icon: 'mif-github',
+                brandingBar: '百度',
+                url: 'https://www.baidu.com',
+                dataSize: 'medium',
+                bgColor:'#008641'
               },
               {
                 class: 'bg-cyan fg-white',
@@ -224,86 +278,20 @@
                 dataSize: 'wide'
               },
               {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com ',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
+                class: 'fg-white',
                 icon: 'mif-github',
                 brandingBar: '百度',
                 url: 'https://www.baidu.com',
-                dataSize: 'small'
-              }, {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com',
-                dataSize: 'medium'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com ',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com',
-                dataSize: 'small'
+                dataSize: 'wide',
+                bgColor:'#ffc40d'
               }
             ]
           },
           {
-            groupTitle: '组三',
-            groupClass: 'size-1 fg-white',
-            tiles: [{
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com ',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com ',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com',
-                dataSize: 'small'
-              },
-              {
-                class: 'bg-cyan fg-white',
-                icon: 'mif-github',
-                brandingBar: '百度',
-                url: 'https://www.baidu.com',
-                dataSize: 'small'
-              }
-            ]
-          },
-          {
-            groupTitle: '组四',
+            groupTitle: '设置',
             groupClass: 'size-2 fg-white',
             tiles: [{
-                class: 'bg-red fg-white',
+                class: 'fg-white',
                 icon: 'mif-github',
                 brandingBar: '百度',
                 url: 'https://www.baidu.com ',
