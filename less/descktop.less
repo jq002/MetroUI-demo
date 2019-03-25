@@ -9,9 +9,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background: url('../images/anime-background-images-1.jpg') center center no-repeat;
+    background-size: cover;
 }
 
-.window-area, .task-bar {
+.window-area {
     position: relative;
     display: block;
 }
@@ -19,13 +21,16 @@
 .window-area {
     height: 100%;
     position: relative;
+    padding-top: 100px;
 }
-
 .task-bar {
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
     display: flex;
     flex-flow: row nowrap;
     height: 42px;
-    background-color: @taskBarBackground;
+    // background-color: @taskBarBackground;
 
     .task-bar-section {
         height: 100%;
@@ -115,42 +120,50 @@
         }
     }
 }
-
-.start-menu {
-    padding: 1px;
-    border-top: 1px rgba(red(#FFFFCC), green(#FFFFCC),  blue(#FFFFCC), .1) solid;
-    border-right: 1px rgba(red(#FFFFCC), green(#FFFFCC),  blue(#FFFFCC), .1) solid;
-    top: auto;
-    bottom: 100%;
-    background-color: @brandColor2;
-    color: @white;
-    display: none;
+.header-bar{
     position: absolute;
-    float: left;
-    width: auto;
-    margin: 0;
-    list-style: none inside none;
-    z-index: @zindex-dropdown;
-    box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
-}
-
-.start-menu-inner {
+    width: 100%;
+    z-index: 1;
+    height: 100px;
+    
     display: flex;
-    flex-flow: row nowrap;
-}
+    align-items: center;
+    &>div{
+        margin-right: 10px;
+    }
+    &-full{
+        flex: 1;
+    }
+    .dropdown-toggle::before{
+        border-color: #ffffff;
+    }
+    &-home{
+        .btn-home{
+            font-size: 2rem;
+            color: #ffffff;
+            padding: 20px 30px;
+            text-decoration: none;
 
-.start-menu {
-    .sys-buttons {
-        width: 48px;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-end;
+        }
+    }
+    &-txt{
+        h3,p{
+            margin: 0;
+
+        }
+    }
+    &-gravatar{
+        img{
+            width: 70px;
+            border-radius: 5px;
+        }
+    }
+    &-set{
+        font-size: 2rem;
     }
 
-    .explorer {
-        width: 220px;
-    }
 }
+
 
 .ani-swoopInTop {
     animation-name: swoopInTop;

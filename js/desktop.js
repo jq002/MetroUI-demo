@@ -99,86 +99,13 @@ var Desktop = {
 
 Desktop.setup()
 
-var w_icons = ['rocket', 'apps', 'cog', 'anchor']
-var w_titles = ['rocket', 'apps', 'cog', 'anchor']
-
-function createWindow() {
-  var index = Metro.utils.random(0, 3)
-  Desktop.createWindow({
-    resizeable: true,
-    draggable: true,
-    width: 300,
-    icon: "<span class='mif-" + w_icons[index] + "'></span>",
-    title: w_titles[index],
-    content:
-      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
-  })
-}
-
-function createWindowWithCustomButtons() {
-  var index = Metro.utils.random(0, 3)
-  var customButtons = [
-    {
-      html: "<span class='mif-rocket'></span>",
-      cls: 'sys-button',
-      onclick: "alert('You press rocket button')"
-    },
-    {
-      html: "<span class='mif-user'></span>",
-      cls: 'alert',
-      onclick: "alert('You press user button')"
-    },
-    {
-      html: "<span class='mif-cog'></span>",
-      cls: 'warning',
-      onclick: "alert('You press cog button')"
-    }
-  ]
-  Desktop.createWindow({
-    resizeable: true,
-    draggable: true,
-    customButtons: customButtons,
-    width: 360,
-    icon: "<span class='mif-" + w_icons[index] + "'></span>",
-    title: w_titles[index],
-    content:
-      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library.<br><br>This window has a custom buttons in caption.</div>"
-  })
-}
-
-function createWindowModal() {
-  Desktop.createWindow({
-    resizeable: false,
-    draggable: true,
-    width: 300,
-    icon: "<span class='mif-cogs'></span>",
-    title: 'Modal window',
-    content:
-      "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>",
-    overlay: true,
-    //overlayColor: "transparent",
-    modal: true,
-    place: 'center',
-    onShow: function(win) {
-      win.addClass('ani-swoopInTop')
-      setTimeout(function() {
-        win.removeClass('ani-swoopInTop')
-      }, 1000)
-    },
-    onClose: function(win) {
-      win.addClass('ani-swoopOutTop')
-    }
-  })
-}
-
 function createWindowIframe(tileConfig) {
-  // Metro.charms.close("#charm");
   var defaultOptions = {
     resizeable: true,
     draggable: true,
     width: tileConfig.width?tileConfig.width:800,
     height: tileConfig.height?tileConfig.height:500,
-    icon: '<span class=' + tileConfig.icon + '></span>',
+    icon: tileConfig.iconUrl?'<img src='+tileConfig.iconUrl+' />':'<span class=' + tileConfig.icon + '></span>',
     title: tileConfig.brandingBar,
     content:
       "<div class='embed-container'><iframe src=" +
