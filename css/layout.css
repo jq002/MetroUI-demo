@@ -311,6 +311,9 @@
   -webkit-animation: fadeIn 5s  infinite;
           animation: fadeIn 5s  infinite;
 }
+.icon-full {
+  width: 100%;
+}
 @-webkit-keyframes fadeIn {
   0%,
   50%,

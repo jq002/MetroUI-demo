@@ -118,13 +118,15 @@
   <script src="./js/vendor/jquery-3.3.1.min.js"></script>
   <script src="./js/vendor/doT.min.js"></script>
   <!-- tile模板 -->
+  <!--                 <img src="{{=tile.iconUrl}}" {{?tile.iconUrlClass}} class="{{=tile.iconUrlClass}}" {{??}}class="icon"{{?}}>
+ -->
   <script type="text/x-dot-template" id="groupTpl">
     {{~ it:item:groupIndex}}
       <div class="tiles-grid tiles-group {{=item.groupClass}}" data-group-title="{{=item.groupTitle}}">
           {{~ item.tiles:tile:index}}
             <div data-role="tile" class="{{=tile.class}}" data-size="{{=tile.dataSize}}" data-id={{=groupIndex+'-'+index}} {{?tile.bgColor}}style="background-color: {{=tile.bgColor}}"{{?}}>
                 {{?tile.iconUrl}}
-                <img src="{{=tile.iconUrl}}" class="icon">
+                <img src="{{=tile.iconUrl}}" class="{{?tile.iconUrlClass}} {{=tile.iconUrlClass}} {{??}} icon {{?}}">
                 {{??}}
                 <span class="{{=tile.icon}} icon"></span>
                 {{?}}
@@ -153,10 +155,11 @@
                 dataSize: 'medium'
               },
               {
-                class: 'bg-cyan fg-white',
+                class: 'bg-transparent fg-white',
                 icon: 'mif-apple',
                 brandingBar: 'word',
                 iconUrl: './images/word.png',
+                iconUrlClass:'icon-full',
                 url: 'https://www.baidu.com',
                 dataSize: 'medium'
               },
@@ -170,6 +173,7 @@
               {
                 class: 'fg-white',
                 icon: 'mif-wind ',
+                iconUrl: './images/word.png',
                 brandingBar: 'window',
                 url: 'https://www.baidu.com ',
                 dataSize: 'small',
